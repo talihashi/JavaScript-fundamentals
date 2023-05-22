@@ -93,6 +93,17 @@ function isPalindrome(word){
 
 //Find the Missing Number: You are given a list of n-1 integers and these integers are in the range of 1 to n. There are no duplicates in the list. One of the integers is missing. Write a function to find this missing number.
 
+function missingNumber(list) {
+    let missedNum = 0;
+    for (let i = 1; i <= list.length; i++) {
+        if (i !== list[i]) {
+            missedNum = i;
+            i--;
+        }
+    }
+    return missedNum;
+}
+
 //Fibonacci Sequence: Write a function that generates the Fibonacci sequence of a given length. The Fibonacci sequence is a series of numbers in which each number is the sum of the two preceding ones. Usually starting with 0 and 1.
 
 //Binary Search: Implement a function that performs a binary search on a sorted array. The function should return the index of the target element if found, otherwise, it should return -1.
