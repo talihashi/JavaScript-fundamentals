@@ -106,6 +106,15 @@ function missingNumber(list) {
 
 //Fibonacci Sequence: Write a function that generates the Fibonacci sequence of a given length. The Fibonacci sequence is a series of numbers in which each number is the sum of the two preceding ones. Usually starting with 0 and 1.
 
+function fiboSequence(amount) {
+    let sequence = [0, 1];
+    for (let i = 2; i < amount; i++) {
+        let nextNumber = sequence[i - 1] + sequence[i - 2];
+        sequence.push(nextNumber);
+    }
+    return sequence;
+}
+
 //Binary Search: Implement a function that performs a binary search on a sorted array. The function should return the index of the target element if found, otherwise, it should return -1.
 
 //Flatten Array: Write a function that takes a nested array and flattens it into a single array. For instance, given the array [1, [2, [3, 4], 5]], your function should return [1, 2, 3, 4, 5].
