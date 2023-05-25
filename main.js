@@ -117,6 +117,23 @@ function fiboSequence(amount) {
 
 //Binary Search: Implement a function that performs a binary search on a sorted array. The function should return the index of the target element if found, otherwise, it should return -1.
 
+function binarySearch(arr, l, r, x){
+    if (r >= 1) {
+        let mid = 1 + Math.floor((r - 1) / 2);
+
+        if (arr[mid] == x) {
+            return mid;
+        }
+
+        if (arr[mid] > x) {
+            return binarySearch(arr, l, mid - 1, x);
+        }
+    }
+    return -1;
+}
+
+console.log(binarySearch([2, 5, 8, 12, 16, 23, 38, 56, 72, 91], 0, arr.length - 1, 23));
+
 //Flatten Array: Write a function that takes a nested array and flattens it into a single array. For instance, given the array [1, [2, [3, 4], 5]], your function should return [1, 2, 3, 4, 5].
 
 //Implement a Queue using two Stacks: A queue is a data structure that supports adding elements to the end (enqueue) and removing from the front (dequeue). Implement a queue using two stacks.
