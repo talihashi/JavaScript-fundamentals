@@ -136,6 +136,10 @@ console.log(binarySearch([2, 5, 8, 12, 16, 23, 38, 56, 72, 91], 0, arr.length - 
 
 //Flatten Array: Write a function that takes a nested array and flattens it into a single array. For instance, given the array [1, [2, [3, 4], 5]], your function should return [1, 2, 3, 4, 5].
 
+function flatten (nested) {
+    return nested.flat();
+}
+
 //Implement a Queue using two Stacks: A queue is a data structure that supports adding elements to the end (enqueue) and removing from the front (dequeue). Implement a queue using two stacks.
 
 //Find Shortest Path in a Graph: Given a graph, a start node, and an end node, write a function that finds the shortest path from the start to the end using Breadth-First Search.
