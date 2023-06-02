@@ -142,4 +142,32 @@ function flatten (nested) {
 
 //Implement a Queue using two Stacks: A queue is a data structure that supports adding elements to the end (enqueue) and removing from the front (dequeue). Implement a queue using two stacks.
 
+class Queue {
+    constructor() {
+        this.stack1 = [];
+        this.stack2 = [];
+    }
+
+    enqueue(item) {
+        this.stack1.push(item);
+    }
+
+    dequeue() {
+        if (this.stack2.length === 0) {
+            if (this.stack1.length === 0) {
+                return "Queue is empty";
+            }
+            while (this.stack1.length > 0) {
+                const poppedItem = this.stack1.pop();
+                this.stack2.push(poppedItem);
+            }
+        }
+        return this.stack2.pop();
+    }
+
+    isEmpty() {
+        return this.stack1.length === 0 && this.stack2.length === 0;
+    }
+}
+
 //Find Shortest Path in a Graph: Given a graph, a start node, and an end node, write a function that finds the shortest path from the start to the end using Breadth-First Search.
