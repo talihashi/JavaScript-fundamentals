@@ -171,3 +171,51 @@ class Queue {
 }
 
 //Find Shortest Path in a Graph: Given a graph, a start node, and an end node, write a function that finds the shortest path from the start to the end using Breadth-First Search.
+
+class Graph {
+    constructor() {
+      this.adjacencyList = new Map();
+    }
+  
+    addVertex(vertex) {
+      this.adjacencyList.set(vertex, []);
+    }
+  
+    addEdge(source, destination) {
+      this.adjacencyList.get(source).push(destination);
+      this.adjacencyList.get(destination).push(source);
+    }
+  
+    shortestPath(start, end) {
+      if (!this.adjacencyList.has(start) || !this.adjacencyList.has(end)) {
+        return "Invalid start or end node";
+      }
+  
+      const queue = [];
+      const visited = new Set();
+      const path = new Map();
+  
+      queue.push(start);
+      visited.add(start);
+  
+      while (queue.length > 0) {
+        const currentNode = queue.shift();
+  
+        if (currentNode === end) {
+          return this.reconstructPath(start, end, path);
+        }
+  
+        const neighbors = this.adjacencyList.get(currentNode);
+  
+        for (const neighbor of neighbors) {
+          if (!visited.has(neighbor)) {
+            queue.push(neighbor);
+            visited.add(neighbor);
+            path.set(neighbor, currentNode);
+          }
+        }
+      }
+  
+      return "No path found";
+    }
+}
